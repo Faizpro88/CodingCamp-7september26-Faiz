@@ -1,0 +1,657 @@
+﻿/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    transition: background 0.3s ease;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: #1a202c;
+    color: #e2e8f0;
+}
+
+body.dark-mode .card {
+    background: #2d3748;
+}
+
+/* Dashboard Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card Styles - All sections as cards */
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.greeting-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.greeting-section h1 {
+    font-size: 28px;
+    color: #2d3748;
+    margin-bottom: 15px;
+    text-transform: none;
+}
+
+body.dark-mode .greeting-section h1 {
+    color: #e2e8f0;
+}
+
+.custom-name-input {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.custom-name-input label {
+    font-size: 14px;
+    color: #4a5568;
+}
+
+body.dark-mode .custom-name-input label {
+    color: #e2e8f0;
+}
+
+.custom-name-input input {
+    padding: 10px 15px;
+    border: 2px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 180px;
+    transition: border-color 0.3s;
+    background-color: #f7fafc;
+    color: #2d3748;
+}
+
+body.dark-mode .custom-name-input input {
+    background-color: #4a5568;
+    color: #e2e8f0;
+    border-color: #718096;
+}
+
+.custom-name-input input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.custom-name-input button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.custom-name-input button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.time-section {
+    text-align: center;
+    min-width: 150px;
+}
+
+.time-section p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #2d3748;
+    text-transform: none;
+}
+
+.time-section p#date {
+    font-size: 14px;
+    color: #718096;
+}
+
+body.dark-mode .time-section p {
+    color: #e2e8f0;
+}
+
+body.dark-mode .time-section p#date {
+    color: #a0aec0;
+}
+
+#darkModeBtn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#darkModeBtn:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Timer Section */
+.timer-section {
+    text-align: center;
+}
+
+.timer-section h2 {
+    color: #2d3748;
+    margin-bottom: 25px;
+    font-size: 22px;
+    text-transform: none;
+}
+
+body.dark-mode .timer-section h2 {
+    color: #e2e8f0;
+}
+
+.timer-display {
+    font-size: 80px;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 25px;
+    font-variant-numeric: tabular-nums;
+}
+
+body.dark-mode .timer-display {
+    color: #63b3ed;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.timer-controls button {
+    padding: 12px 28px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-weight: 600;
+}
+
+#startBtn {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+}
+
+#stopBtn {
+    background: linear-gradient(135deg, #6c757d 0%, #868e96 100%);
+    color: white;
+}
+
+#resetBtn {
+    background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
+    color: white;
+}
+
+.timer-controls button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.timer-status {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #4a5568;
+    text-transform: none;
+}
+
+.timer-status.running {
+    color: #28a745;
+}
+
+.timer-status.paused {
+    color: #dc3545;
+}
+
+.timer-status.completed {
+    color: #667eea;
+}
+
+body.dark-mode .timer-status {
+    color: #e2e8f0;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    background-color: #e2e8f0;
+    border-radius: 15px;
+    height: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    width: 0%;
+    border-radius: 15px;
+    transition: width 0.3s ease;
+}
+
+body.dark-mode .progress-container {
+    background-color: #4a5568;
+}
+
+/* To-Do List Section */
+.todo-section {
+    min-height: 200px;
+}
+
+.todo-section h2 {
+    color: #2d3748;
+    margin-bottom: 20px;
+    font-size: 22px;
+    text-transform: none;
+}
+
+body.dark-mode .todo-section h2 {
+    color: #e2e8f0;
+}
+
+.todo-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.todo-input input {
+    flex: 1;
+    padding: 12px 18px;
+    border: 2px solid #cbd5e0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    background-color: #f7fafc;
+    color: #2d3748;
+}
+
+body.dark-mode .todo-input input {
+    background-color: #4a5568;
+    color: #e2e8f0;
+    border-color: #718096;
+}
+
+.todo-input input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.todo-input button {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.todo-input button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Task List */
+.task-list {
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    background-color: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.task-item:hover {
+    border-color: #667eea;
+    transform: translateX(5px);
+}
+
+.task-item.completed .task-title {
+    text-decoration: line-through;
+    color: #718096;
+}
+
+.task-item.completed {
+    background-color: #edf2f7;
+}
+
+.task-checkbox {
+    width: 22px;
+    height: 22px;
+    margin-right: 15px;
+    cursor: pointer;
+    accent-color: #667eea;
+}
+
+.task-title {
+    flex: 1;
+    font-size: 16px;
+    color: #2d3748;
+    text-transform: none;
+}
+
+body.dark-mode .task-title {
+    color: #e2e8f0;
+}
+
+.task-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.task-actions button {
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.task-actions button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.task-actions .toggle-btn {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+}
+
+.task-actions .edit-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.task-actions .delete-btn {
+    background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
+    color: white;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 40px 20px;
+    color: #718096;
+    font-style: italic;
+    text-transform: none;
+}
+
+body.dark-mode .empty-message {
+    color: #a0aec0;
+}
+
+/* Quick Links Section */
+.quick-links-section {
+    min-height: 200px;
+}
+
+.quick-links-section h2 {
+    color: #2d3748;
+    margin-bottom: 20px;
+    font-size: 22px;
+    text-transform: none;
+}
+
+body.dark-mode .quick-links-section h2 {
+    color: #e2e8f0;
+}
+
+.quick-links-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.quick-links-input input {
+    flex: 1;
+    min-width: 120px;
+    padding: 12px 18px;
+    border: 2px solid #cbd5e0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    background-color: #f7fafc;
+    color: #2d3748;
+}
+
+body.dark-mode .quick-links-input input {
+    background-color: #4a5568;
+    color: #e2e8f0;
+    border-color: #718096;
+}
+
+.quick-links-input input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.quick-links-input input:first-child {
+    flex: 0.4;
+}
+
+.quick-links-input button {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex: 0.3;
+}
+
+.quick-links-input button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Link List */
+.link-list {
+    list-style: none;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    margin-bottom: 10px;
+    background-color: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.link-item:hover {
+    border-color: #667eea;
+    transform: translateX(5px);
+}
+
+.link-item a {
+    flex: 1;
+    color: #667eea;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 15px;
+    transition: color 0.2s;
+    text-transform: none;
+}
+
+.link-item a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+body.dark-mode .link-item a {
+    color: #63b3ed;
+}
+
+body.dark-mode .link-item a:hover {
+    color: #81e6d9;
+}
+
+.link-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.link-actions button {
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.link-actions button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.link-actions .delete-btn {
+    background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .greeting-section {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .custom-name-input {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .custom-name-input input {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .time-section {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .timer-display {
+        font-size: 60px;
+    }
+
+    .timer-controls {
+        flex-wrap: wrap;
+    }
+
+    .timer-controls button {
+        flex: 1;
+        min-width: 80px;
+    }
+
+    .todo-input,
+    .quick-links-input {
+        flex-direction: column;
+    }
+
+    .todo-input input,
+    .quick-links-input input {
+        width: 100%;
+    }
+
+    .todo-input button,
+    .quick-links-input button {
+        width: 100%;
+    }
+
+    .link-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .link-item a {
+        margin-left: 0;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    .link-actions {
+        width: 100%;
+        justify-content: center;
+    }
+}
+/* BUG FIX: DARK MODE WARNA */
+body.dark-mode { background: #1a202c !important; color: #e2e8f0; }
+body.dark-mode .card { background: #2d3748 !important; color: #e2e8f0; border: none; }
+body.dark-mode input { background: #4a5568; color: #e2e8f0; }
+body.dark-mode button { filter: brightness(0.9); }
